@@ -28,6 +28,8 @@ fastjsonschema==2.16.3
 Fiona==1.9.2
 fonttools==4.39.3
 fqdn==1.5.1
+future==0.18.3
+geocoder==1.38.1
 geopandas==0.12.2
 idna==3.4
 ipykernel==6.22.0
@@ -65,9 +67,12 @@ nbclient==0.7.3
 nbconvert==7.3.0
 nbformat==5.8.0
 nest-asyncio==1.5.6
+nodejs==0.1.1
 notebook==6.5.3
 notebook_shim==0.2.2
+npm==0.1.1
 numpy==1.24.2
+optional-django==0.1.0
 packaging==23.0
 pandas==2.0.0
 pandocfilters==1.5.0
@@ -93,6 +98,7 @@ PyYAML==6.0
 pyzmq==25.0.2
 qtconsole==5.4.2
 QtPy==2.3.1
+ratelim==0.1.6
 requests==2.28.2
 rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
@@ -114,5 +120,6 @@ webcolors==1.13
 webencodings==0.5.1
 websocket-client==1.5.1
 widgetsnbextension==4.0.7
+wikipedia==1.4.0
 y-py==0.5.9
 ypy-websocket==0.8.2
