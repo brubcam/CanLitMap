@@ -45,20 +45,25 @@ function initialize() {
 
         //create function to display pop-up information, and only show notes and bio if present
         function onEachFeature(feature, layer) {
-            if (feature.properties.Notes !== null && feature.properties.AuthorBiography !== null) {
-                layer.bindPopup('<bold>Author: </bold>'+feature.properties.WorkAuthor+'<br>'+'<bold>Title: </bold>'+feature.properties.WorkTitle+'<br>'+'<bold>Year: </bold>'+feature.properties.Year+'<br>'+'<bold>Pages: </bold>'+feature.properties.Pages+'<br>'+'<bold>Publisher: </bold>'+feature.properties.WorkPublisher+'<br>'+'<bold>Publishing City: </bold>'+feature.properties.PublisherCity+'<br>'+'<bold>Notes: </bold>'+feature.properties.Notes+'<br>'+'<bold>Bio: </bold>'+feature.properties.AuthorBiography+'<br>'+'<bold>Birthplace: </bold>'+feature.properties.AuthorBirthplace);
-            } else if (feature.properties.Notes !== null && feature.properties.AuthorBiography === null) {
-                layer.bindPopup('<bold>Author: </bold>'+feature.properties.WorkAuthor+'<br>'+'<bold>Title: </bold>'+feature.properties.WorkTitle+'<br>'+'<bold>Year: </bold>'+feature.properties.Year+'<br>'+'<bold>Pages: </bold>'+feature.properties.Pages+'<br>'+'<bold>Publisher: </bold>'+feature.properties.WorkPublisher+'<br>'+'<bold>Publishing City: </bold>'+feature.properties.PublisherCity+'<br>'+'<bold>Notes: </bold>'+feature.properties.Notes+'<br>'+'<bold>Birthplace: </bold>'+feature.properties.AuthorBirthplace);
-            } else if (feature.properties.Notes === null && feature.properties.AuthorBiography !== null) {
-                layer.bindPopup('<bold>Author: </bold>'+feature.properties.WorkAuthor+'<br>'+'<bold>Title: </bold>'+feature.properties.WorkTitle+'<br>'+'<bold>Year: </bold>'+feature.properties.Year+'<br>'+'<bold>Pages: </bold>'+feature.properties.Pages+'<br>'+'<bold>Publisher: </bold>'+feature.properties.WorkPublisher+'<br>'+'<bold>Publishing City: </bold>'+feature.properties.PublisherCity+'<br>'+'<bold>Bio: </bold>'+feature.properties.AuthorBiography+'<br>'+'<bold>Birthplace: </bold>'+feature.properties.AuthorBirthplace);
-            } else {
-                layer.bindPopup('<bold>Author: </bold>'+feature.properties.WorkAuthor+'<br>'+'<bold>Title: </bold>'+feature.properties.WorkTitle+'<br>'+'<bold>Year: </bold>'+feature.properties.Year+'<br>'+'<bold>Pages: </bold>'+feature.properties.Pages+'<br>'+'<bold>Publisher: </bold>'+feature.properties.WorkPublisher+'<br>'+'<bold>Publishing City: </bold>'+feature.properties.PublisherCity+'<br>'+'<bold>Birthplace: </bold>'+feature.properties.AuthorBirthplace);
+            var popupContent = "<img src='"+feature.properties.AuthorImage+"'style='width: 250px; height: auto;'>"+'<br>'+'<boldund>'+feature.properties.WorkAuthor+'</boldund>'+'<br>'+'<bold>Birthplace: </bold>'+feature.properties.AuthorBirthplace+'<br>'+'<bold>Bio: </bold>'+feature.properties.AuthorBiography
+            for (let i = 0; i < feature.properties.NumberofWorks; i++) {
+                var works = 'WorkTitle'+i
+                var year = 'Year'+i
+                var pages = 'Pages'+i
+                var publisher = 'WorkPublisher'+i
+                var city = 'PublisherCity'+i
+                var notes = 'Notes'+i
+                popupContent += '<br>'+'<br>'+'<und>'+feature.properties[works]+'</und>'+'<br>'+'<bold>Year: </bold>'+feature.properties[year]+'<br>'+'<bold>Pages: </bold>'+feature.properties[pages]+'<br>'+'<bold>Publisher: </bold>'+feature.properties[publisher]+'<br>'+'<bold>Publishing City: </bold>'+feature.properties[city]
+                if (feature.properties[notes] !== null) {
+                    popupContent += '<br>'+'<bold>Notes: </bold>'+feature.properties[notes]
+                }
             }
+            layer.bindPopup(popupContent);
         };
     };
 
     //call the function to create leaflet map
 	loadMap();
-}
+};
 
 window.onload = initialize();
