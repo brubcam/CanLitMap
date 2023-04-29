@@ -1,0 +1,28 @@
+/* Created by Cameron Brubacher, 2023, for Term Project in GEOG 464 */
+#div1 {
+    height: 150px;
+    width: 80%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+#mapdiv {
+    height: 1000px;
+    width: 80%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+header {
+	font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 300%
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+bold {
+    font-weight: bold
+}
